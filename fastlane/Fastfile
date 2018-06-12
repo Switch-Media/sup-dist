@@ -1,0 +1,19 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :release do |options|
+    # framework(options)
+    # version_number = version_get_podspec(path: @sdk_podspec_path)
+    version_number = "3.1.2"
+    set_github_release(
+      repository_name: "Switch-Media/sup-dist",
+      api_token: "0b9ab0cba1630c553536758392cfcf4e1dda8b36",
+      name: version_number,
+      tag_name: version_number,
+      description: "New version: #{version_number}",
+      upload_assets: ["SwitchUniversalPlayer/release/235"
+      ]
+    )
+  end
+end
